@@ -111,7 +111,7 @@ async def get_grader_score():
     try:
         env = get_current_env()
         pareto = env.get_pareto_score()
-        result = pareto.dict()
+        result = pareto.model_dump()
         result["score"] = pareto.aggregate_score
         return result
     except HTTPException:
